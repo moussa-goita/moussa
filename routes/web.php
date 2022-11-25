@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/employe', [App\Http\Controllers\EmployeController::class, 'index'])->name('employe');
 Route::get('/services', [App\Http\Controllers\servicesController::class, 'index'])->name('services');
 Route::get('/a-propos', [App\Http\Controllers\AproposController::class, 'index'])->name('a-propos');
+  
