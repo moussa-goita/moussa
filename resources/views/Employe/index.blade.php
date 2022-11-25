@@ -1,6 +1,31 @@
+<?php
+try {
+    $bd_url = "localhost";
+    $bd_name = "lara";
+    $bd_login = "root";
+    $bd_pass = "";
+    $bdd = new PDO('mysql:host=' . $bd_url . ';dbname=' . $bd_name, $bd_login, $bd_pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+} catch (Exception $e) {
+    die(header("HTTP/1.1 500 Connexion a la base de donne impossible"));
+}
+?>
 
+<?php
+   // Vérifier si le formulaire est soumis 
+   if ( isset( $_GET['submit'] ) ) {
+     /* récupérer les données du formulaire en utilisant 
+        la valeur des attributs name comme clé 
+       */
+     $nom = $_GET['nom']; 
+     $telephone = $_GET['telephone']; 
+     $salaire = $_GET['salaire'];
+     // afficher le résultat
+     echo '<h3>Informations récupérées en utilisant GET</h3>'; 
+     echo 'Nom : ' . $nom . ' telephone : ' . $telephone . ' salaire : ' . $salaire; 
+     exit;
+  }
+?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   
@@ -11,14 +36,13 @@
     <title>Document</title>
 </head>
 <body>
-<form method="get" action=" ">
+<form method="{{ ('employe.blade') }}" action="GET">
  
  <fieldset>
-   <legend>U</legend>
-   <label for="name">Votre nom</label><input type="text" id="name">
-   <label for="salaire">Salaire</label><input type="text" id="salaire">
-   
-   <label for="email">Votre email</label><input type="email" id="email" placeholder="exemple@email.com" required>
+   <legend>Employe</legend>
+   <label for="name">Votre nom</label><input type="text" id="name" required>
+   <label for="name">Telephone</label><input type="text" id="telephone" required>
+   <label for="salaire">Salaire</label><input type="number" id="salaire" required>
    <input type="submit">
  </fieldset>
  

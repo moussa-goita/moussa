@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 */ 
 
 Route::get('/', function () {
-    return view('employe');
+    return view('welcome');
 });
 
 Auth::routes(); 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/employe', [App\Http\Controllers\EmployeController::class, 'index'])->name('employe');
-Route::get('/services', [App\Http\Controllers\servicesController::class, 'index'])->name('services');
-Route::get('/a-propos', [App\Http\Controllers\AproposController::class, 'index'])->name('a-propos');
+Route::resource("/student", StudentController::class);
+/*
+Route::get("/home", HomeController::class);
+Route::get("/employe", EmployeController::class);
+Route::get("/welcome", WelcomeController::class);
+Route::get("/a-propos", AproposController::class);
+  */
