@@ -40,9 +40,9 @@ try {
  
  <fieldset>
    <legend>Employe</legend>
-   <label for="name">Votre nom</label><input type="text" id="name">
-   <label for="name">Telephone</label><input type="text" id="telephone">
-   <label for="salaire">Salaire</label><input type="number" id="salaire">
+   <label for="name">Votre nom</label><input type="text" id="name" required>
+   <label for="name">Telephone</label><input type="text" id="telephone" required>
+   <label for="salaire">Salaire</label><input type="number" id="salaire" required>
    <input type="submit">
  </fieldset>
  
